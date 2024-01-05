@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'solopreneur_row.dart';
-import 'content_row.dart';
-import 'footer_row.dart';
+import 'homepage/content_row.dart';
+import 'homepage/footer_row.dart';
 
 void main() {
   runApp(const MyApp());
