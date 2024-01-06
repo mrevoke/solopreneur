@@ -66,7 +66,7 @@ class RevenueRow extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: screenHeight * 0.1 / 7,
+                    height: screenHeight * 0.05 / 7,
                   ),
                   Text(
                     '\$$amount',
@@ -77,7 +77,7 @@ class RevenueRow extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: screenHeight * 0.1 / 7,
+                    height: screenHeight * 0.02 / 7,
                   ),
                   Container(
                     width: screenHeight * 0.3 / 7,
@@ -95,7 +95,7 @@ class RevenueRow extends StatelessWidget {
                         ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ],
