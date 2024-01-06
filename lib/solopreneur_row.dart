@@ -1,6 +1,8 @@
 // solopreneur_row.dart
 
 import 'package:flutter/material.dart';
+import 'package:solopreneuer/main.dart';
+import 'package:solopreneuer/marketting/marketting.dart';
 
 class SolopreneurRow extends StatelessWidget {
   final String selectedText;
@@ -13,8 +15,11 @@ class SolopreneurRow extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
-      width:MediaQuery.of(context).size.width * (1.5 / 7),
-      child: Container(decoration: BoxDecoration(border: Border(right: BorderSide(color: Color.fromARGB(228, 83, 92, 78)))),
+      width: MediaQuery.of(context).size.width * (1.5 / 7),
+      child: Container(
+        decoration: BoxDecoration(
+            border: Border(
+                right: BorderSide(color: Color.fromARGB(228, 83, 92, 78)))),
         child: Column(
           children: [
             // Solopreneur
@@ -37,7 +42,7 @@ class SolopreneurRow extends StatelessWidget {
                 ),
               ),
             ),
-      
+
             // Your own Co-Founder
             Container(
               child: Text(
@@ -51,14 +56,19 @@ class SolopreneurRow extends StatelessWidget {
                 ),
               ),
             ),
-      
+
             // Gap
             SizedBox(height: screenHeight * 0.07),
-      
+
             // Overview
             GestureDetector(
               onTap: () {
-                onTextTap('Overview');
+               
+                 Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyApp()),
+                ); onTextTap('Overview');
               },
               child: Container(
                 child: Text(
@@ -74,14 +84,19 @@ class SolopreneurRow extends StatelessWidget {
                 ),
               ),
             ),
-      
+
             // Gap
             SizedBox(height: screenHeight * 0.05),
-      
+
             // Strategic Planning
             GestureDetector(
               onTap: () {
-                onTextTap('Strategic Planning');
+               
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => marketing()),
+                ); onTextTap('Strategic Planning');
               },
               child: Container(
                 child: Text(
@@ -98,7 +113,7 @@ class SolopreneurRow extends StatelessWidget {
               ),
             ),
             SizedBox(height: screenHeight * 0.05),
-      
+
             // Finance
             GestureDetector(
               onTap: () {
@@ -118,9 +133,9 @@ class SolopreneurRow extends StatelessWidget {
                 ),
               ),
             ),
-      
+
             SizedBox(height: screenHeight * 0.05),
-      
+
             // Compliance & Legal
             GestureDetector(
               onTap: () {
@@ -141,7 +156,7 @@ class SolopreneurRow extends StatelessWidget {
               ),
             ),
             SizedBox(height: screenHeight * 0.05),
-      
+
             // Relations
             GestureDetector(
               onTap: () {
@@ -161,10 +176,10 @@ class SolopreneurRow extends StatelessWidget {
                 ),
               ),
             ),
-      
+
             // Gap
             SizedBox(height: screenHeight * 0.05),
-      
+
             // Management
             GestureDetector(
               onTap: () {
@@ -185,7 +200,7 @@ class SolopreneurRow extends StatelessWidget {
               ),
             ),
             SizedBox(height: screenHeight * 0.05),
-      
+
             // HELP
             GestureDetector(
               onTap: () {

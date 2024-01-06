@@ -1,6 +1,7 @@
 // main.dart
 
 import 'package:flutter/material.dart';
+import 'package:solopreneuer/marketting/piechart.dart';
 import 'package:solopreneuer/page.dart';
 import 'solopreneur_row.dart';
 import 'homepage/content_row.dart';
@@ -45,8 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
             selectedText: selectedText,
             onTextTap: onTextTap,
           ),
-          ContentRow(),
-          FooterRow(),
+       ContentRow(),
+       FooterRow(),
           // Other Rows can be added similarly
         ],
       ),
