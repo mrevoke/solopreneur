@@ -48,7 +48,8 @@ class MyBarGraph extends StatelessWidget {
                   barRods: [
                     BarChartRodData(
                       toY: data.y,
-                      width: 40,
+                      
+                      width: MediaQuery.of(context).size.width/24,
                       borderRadius: BorderRadius.circular(2),
                       backDrawRodData: BackgroundBarChartRodData(
                         show: true,

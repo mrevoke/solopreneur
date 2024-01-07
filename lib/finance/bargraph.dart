@@ -20,20 +20,23 @@ class _BargraphContainerState extends State<BargraphContainer> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+         SizedBox(height:MediaQuery.of(context).size.height *.4/7),
            Text(
                   'Money Flow',
                   style: TextStyle(
                     fontSize: MediaQuery.of(context).size.height / 25,
                     color: Colors.black,
+                    fontWeight: FontWeight.bold
                     
                   ),
                 ),
-          Container(
-            margin: EdgeInsets.only(left: 25),
+         SizedBox(height:MediaQuery.of(context).size.height *.4/7),
+
+          Container(alignment: Alignment.center,
             child: SizedBox(
-              height: 350,
+              height: MediaQuery.of(context).size.height*3/7,
               width: 500,
               child: MyBarGraph(
                 amountSummary: amountSummary,
