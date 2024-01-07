@@ -1,6 +1,7 @@
 // solopreneur_row.dart
 
 import 'package:flutter/material.dart';
+import 'package:solopreneuer/finance/finance_page.dart';
 import 'package:solopreneuer/main.dart';
 import 'package:solopreneuer/marketting/marketting.dart';
 
@@ -117,6 +118,11 @@ class SolopreneurRow extends StatelessWidget {
             // Finance
             GestureDetector(
               onTap: () {
+                 Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FinancePage()),
+                ); 
                 onTextTap('Finance');
               },
               child: Container(
