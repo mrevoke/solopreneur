@@ -20,7 +20,7 @@ class _marketingState extends State<marketing> {
             selectedText: selectedText,
             onTextTap: onTextTap,
           ),
-          second_page(),
+          piechartsec(),
           // Other Rows can be added similarly
         ],
       ),

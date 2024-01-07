@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:solopreneuer/relations/appbar.dart';
 import 'package:solopreneuer/solopreneur_row.dart';
 
 Map<String, double> dataMap = {
@@ -15,8 +16,8 @@ Map<String, double> dataMap2 = {
   "Facebook": 25,
 };
 
-class second_page extends StatelessWidget {
-  const second_page({super.key});
+class piechartsec extends StatelessWidget {
+  const piechartsec({super.key});
 
   // String selectedText=' ';
   @override
@@ -25,8 +26,8 @@ class second_page extends StatelessWidget {
       width: MediaQuery.of(context).size.width * (5.5 / 7),
       child: Column(
         children: [
-          
-          SizedBox(height: MediaQuery.of(context).size.height / 10),
+          MyAppBar(),
+          SizedBox(height: MediaQuery.of(context).size.height* 0.35 / 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
