@@ -9,6 +9,7 @@ class pagee extends StatefulWidget {
 class _pageeState extends State<pagee> {
   @override
   Widget build(BuildContext context) {
+    //chat pop up box
     void _showCardDialog(BuildContext context) {
       showDialog(context: context, builder: (BuildContext context){
         return AlertDialog(
@@ -21,6 +22,7 @@ class _pageeState extends State<pagee> {
       );
     }
     return Scaffold(
+      //appbar
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.white,
@@ -60,10 +62,12 @@ class _pageeState extends State<pagee> {
           ),
         ),
         actions: [
+          //notificationbutton
           IconButton(
             onPressed: () {},
             icon: Icon(Icons.notifications_outlined, color: Colors.black),
           ),
+          //useriddetails and login
           Container(
             decoration: BoxDecoration(
               color:  Color.fromRGBO(70, 156, 255, 0.612)
@@ -77,6 +81,7 @@ class _pageeState extends State<pagee> {
         child: Column(
           children: [
             SizedBox(height: MediaQuery.of(context).size.width * 0.02,),
+            //networkingTitle
             Container(
               margin: EdgeInsets.only(left:  MediaQuery.of(context).size.width * 0.1,right: MediaQuery.of(context).size.width * 0.1),
               child: Text('Networking',
@@ -86,6 +91,7 @@ class _pageeState extends State<pagee> {
                     ),),
             ),
             SizedBox(height: MediaQuery.of(context).size.width * 0.01,),
+            //textfield
             Container(
               margin: EdgeInsets.only(left:  MediaQuery.of(context).size.width * 0.1,right:  MediaQuery.of(context).size.width * 0.1),
               height:MediaQuery.of(context).size.width * 0.06,
@@ -107,6 +113,7 @@ class _pageeState extends State<pagee> {
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.width * 0.02,),
+            //boxForContent
             Container(
               height: 500,
               margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.1,right: MediaQuery.of(context).size.width * 0.1),
@@ -131,6 +138,7 @@ class _pageeState extends State<pagee> {
     );
   }
 }
+//functionforUserId
 class MyPopupMenuButton extends StatefulWidget {
   @override
   _MyPopupMenuButtonState createState() => _MyPopupMenuButtonState();
