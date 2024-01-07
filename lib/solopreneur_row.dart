@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:solopreneuer/main.dart';
 import 'package:solopreneuer/marketting/marketting.dart';
+import 'package:solopreneuer/relations/mailing.dart';
 
 class SolopreneurRow extends StatelessWidget {
   final String selectedText;
@@ -161,6 +162,12 @@ class SolopreneurRow extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 onTextTap('Relations');
+                
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => mailingpage()),
+                ); 
               },
               child: Container(
                 child: Text(
