@@ -1,8 +1,11 @@
 // footer_row.dart
 
 import 'package:flutter/material.dart';
+import 'package:solopreneuer/finance/bar_graph.dart';
+import 'package:solopreneuer/finance/bargraph.dart';
 //import 'package:solopreneuer/homepage/linechart.dart';
 import 'package:solopreneuer/homepage/stats.dart';
+import 'package:solopreneuer/marketting/piechart.dart';
 
 class FooterRow extends StatelessWidget {
   @override
@@ -40,7 +43,13 @@ class FooterRow extends StatelessWidget {
             
              ],
            ),
-           
+
+ Expanded(
+            child: Image.asset(
+              'images/fx.png',
+              fit: BoxFit.contain, // Adjust the fit based on your preference
+            ),
+          ),
         ],
       ),
     );

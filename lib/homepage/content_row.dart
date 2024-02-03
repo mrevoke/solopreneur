@@ -58,7 +58,7 @@ class ContentRow extends StatelessWidget {
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [ RevenueRow(
             country: "India",
             amount: "1500",
-            percentage: "25%",
+            percentage: "30%",
             startColor: Color(0xFF8AC53E),
             middleColor: Color(0xFF6B9F37),
             endColor: Color(0xFF8AC53E),
