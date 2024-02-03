@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:solopreneuer/finance/finance_page.dart';
 import 'package:solopreneuer/main.dart';
+import 'package:solopreneuer/management/management_page.dart';
 import 'package:solopreneuer/marketting/marketting.dart';
 import 'package:solopreneuer/relations/mailing.dart';
 
@@ -197,6 +198,12 @@ class SolopreneurRow extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 onTextTap('Management');
+
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Management()),
+                ); 
               },
               child: Container(
                 child: Text(
