@@ -38,6 +38,8 @@ dependencies:
   fl_chart: ^0.64.0
   pie_chart: ^5.4.0
   percent_indicator: 4.2.3
+  dash_chat_2: ^0.0.18
+  chat_gpt_sdk: ^2.2.5
 
 dev_dependencies:
   flutter_test:
