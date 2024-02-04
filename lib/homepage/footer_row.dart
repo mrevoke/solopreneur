@@ -46,7 +46,7 @@ class FooterRow extends StatelessWidget {
 
  Expanded(
             child: Image.asset(
-              '../../images/fx.png',
+              'images/fx.png',
               fit: BoxFit.contain, // Adjust the fit based on your preference
             ),
           ),

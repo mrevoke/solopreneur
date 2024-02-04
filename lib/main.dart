@@ -1,16 +1,22 @@
 // main.dart
 
 import 'package:flutter/material.dart';
+//import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:solopreneuer/finance/finance_page.dart';
 import 'package:solopreneuer/finance/main_page.dart';
 import 'package:solopreneuer/marketting/marketting.dart';
 import 'package:solopreneuer/marketting/piechart.dart';
 import 'package:solopreneuer/relations/mailsection.dart';
+import 'package:solopreneuer/legal/legal.dart';
+import 'package:solopreneuer/legal/legal_attempt.dart';
 import 'solopreneur_row.dart';
 import 'homepage/content_row.dart';
 import 'homepage/footer_row.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+void main() async {
+  await dotenv.load(fileName: "lib/.env");
+
   runApp(const MyApp());
 }
 
@@ -65,6 +71,3 @@ class _MyHomePageState extends State<MyHomePage> {
     // For example, you can navigate to a different screen or perform some action
   }
 }
-
-
-
