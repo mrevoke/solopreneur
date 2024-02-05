@@ -21,30 +21,30 @@ class FooterRow extends StatelessWidget {
           ),
           Text(
             "Statistics",
-            style: TextStyle(
-                fontSize: screenHeight * .27 / 7, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: screenHeight*.27/7, fontWeight: FontWeight.bold),
           ),
           SizedBox(
             height: screenHeight * .2 / 7,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              StatsCard(title: 'New\nClients', value: '180'),
+           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+             children: [
+               StatsCard(title: 'New\nClients', value: '180'),
               StatsCard(title: 'Returning\nClients', value: '80'),
-            ],
-          ),
-          SizedBox(
+            
+             ],
+           ),
+           SizedBox(
             height: screenHeight * .15 / 7,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              StatsCard(title: 'Tasks in\nProgress', value: '12'),
+           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+             children: [
+               StatsCard(title: 'Tasks in\nProgress', value: '12'),
               StatsCard(title: 'Tasks\nFinished', value: '16'),
-            ],
-          ),
-          Expanded(
+            
+             ],
+           ),
+
+ Expanded(
             child: Image.asset(
               'images/fx.png',
               fit: BoxFit.contain, // Adjust the fit based on your preference
