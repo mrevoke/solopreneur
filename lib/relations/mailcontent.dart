@@ -96,7 +96,7 @@ class _MailContentState extends State<MailContent> {
                         //response='Loading.....';
                         String question = _questionController.text;
                         if (question.isNotEmpty) {
-                          question="Hey Chat GPT help me write a cold mail in less than 300 word proper format"
+                          question="Hey Chat GPT help me write a cold mail in less than 400 word proper format"
                               "and in an eye catchy manner to get reply from my investor while "
                               "keeping these things also in mind"+question;
                           askGPT(question);
