@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "23862615094",
+    "project_id": "solopreneur-6f649",
+    "storage_bucket": "solopreneur-6f649.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:23862615094:android:ccbf9845276928aba90c97",
+        "android_client_info": {
+          "package_name": "com.example.solopreneuer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTRWmiqByGYWQcN7-REirVQJnQmiOfIk0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

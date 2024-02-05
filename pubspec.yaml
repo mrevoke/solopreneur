@@ -40,6 +40,8 @@ dependencies:
   percent_indicator: 4.2.3
   dash_chat_2: ^0.0.18
   chat_gpt_sdk: ^2.2.5
+  firebase_core: ^2.25.3
+  firebase_auth: ^4.17.3
 
 dev_dependencies:
   flutter_test:

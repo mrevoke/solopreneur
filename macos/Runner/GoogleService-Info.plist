@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyAT1CnWumGgzs24GympbJI8UqV7W1cWTFs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>23862615094</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.solopreneuer.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>solopreneur-6f649</string>
+	<key>STORAGE_BUCKET</key>
+	<string>solopreneur-6f649.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:23862615094:ios:50c9957d04b36fe1a90c97</string>
+</dict>
+</plist>

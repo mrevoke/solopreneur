@@ -1,9 +1,12 @@
 // main.dart
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:solopreneuer/authentication/login.dart';
 //import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:solopreneuer/finance/finance_page.dart';
 import 'package:solopreneuer/finance/main_page.dart';
+import 'package:solopreneuer/firebase_options.dart';
 import 'package:solopreneuer/marketting/marketting.dart';
 import 'package:solopreneuer/marketting/piechart.dart';
 import 'package:solopreneuer/relations/mailsection.dart';
@@ -13,8 +16,12 @@ import 'solopreneur_row.dart';
 import 'homepage/content_row.dart';
 import 'homepage/footer_row.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 void main() async {
+WidgetsFlutterBinding.ensureInitialized(); 
+await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
   await dotenv.load(fileName: "lib/.env");
 
   runApp(const MyApp());
@@ -26,13 +33,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Responsive App',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(),
-    );
+        theme: ThemeData(useMaterial3: true),
+        debugShowCheckedModeBanner: false,
+        title: 'firebase auth example',
+        home: StreamBuilder<User?>(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return MyHomePage();
+            } else {
+              return LoginPage();
+            }
+          },
+        ));
   }
 }
 
