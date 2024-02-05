@@ -18,14 +18,10 @@ class StatsCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            height: screenHeight * .2 / 7,
-          ),
+          SizedBox(height: screenHeight * .2 / 7,),
           Row(
             children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * .1 / 7,
-              ),
+              SizedBox(width: MediaQuery.of(context).size.width * .1 / 7,),
               Text(
                 '$title',
                 style: TextStyle(
@@ -38,9 +34,7 @@ class StatsCard extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            height: screenHeight * .2 / 7,
-          ),
+          SizedBox(height: screenHeight * .2 / 7,),
           Align(
             alignment: Alignment.bottomRight,
             child: Text(

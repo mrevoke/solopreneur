@@ -68,12 +68,12 @@ class SolopreneurRow extends StatelessWidget {
             // Overview
             GestureDetector(
               onTap: () {
-                Navigator.pop(context);
+               
+                 Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => MyApp()),
-                );
-                onTextTap('Overview');
+                ); onTextTap('Overview');
               },
               child: Container(
                 child: Text(
@@ -96,12 +96,12 @@ class SolopreneurRow extends StatelessWidget {
             // Strategic Planning
             GestureDetector(
               onTap: () {
+               
                 Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => marketing()),
-                );
-                onTextTap('Strategic Planning');
+                ); onTextTap('Strategic Planning');
               },
               child: Container(
                 child: Text(
@@ -122,11 +122,11 @@ class SolopreneurRow extends StatelessWidget {
             // Finance
             GestureDetector(
               onTap: () {
-                Navigator.pop(context);
+                 Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => FinancePage()),
-                );
+                ); 
                 onTextTap('Finance');
               },
               child: Container(
@@ -176,12 +176,12 @@ class SolopreneurRow extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 onTextTap('Relations');
-
+                
                 Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => mailingpage()),
-                );
+                ); 
               },
               child: Container(
                 child: Text(
@@ -210,7 +210,7 @@ class SolopreneurRow extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Management()),
-                );
+                ); 
               },
               child: Container(
                 child: Text(

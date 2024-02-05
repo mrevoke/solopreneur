@@ -13,29 +13,9 @@ import 'solopreneur_row.dart';
 import 'homepage/content_row.dart';
 import 'homepage/footer_row.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter/foundation.dart';
-// For Auth
-import 'package:solopreneuer/shared/constants.dart';
-import 'package:solopreneuer/helper/helper_function.dart';
-import 'package:solopreneuer/auth/login_page.dart';
-import 'package:solopreneuer/homepage/homepage.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   await dotenv.load(fileName: "lib/.env");
-
-  WidgetsFlutterBinding.ensureInitialized();
-
-  if (kIsWeb) {
-    await Firebase.initializeApp(
-        options: FirebaseOptions(
-            apiKey: Constants.apiKey,
-            appId: Constants.appId,
-            messagingSenderId: Constants.messagingSenderId,
-            projectId: Constants.projectId));
-  } else {
-    await Firebase.initializeApp();
-  }
 
   runApp(const MyApp());
 }
@@ -66,42 +46,20 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String selectedText = '';
 
-  bool _isSignedIn = false;
-
-  @override
-  void initState() {
-    super.initState();
-    getUserLoggedInStatus();
-  }
-
-  getUserLoggedInStatus() async {
-    await HelperFunctions.getUserLoggedInStatus().then((value) {
-      if (value != null) {
-        setState(() {
-          _isSignedIn = value;
-        });
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: _isSignedIn ? const HomePage() : const LoginPage(),
-      // child: Scaffold(
-      //   body: Row(
-      //     children: [
-      //       SolopreneurRow(
-      //         selectedText: selectedText,
-      //         onTextTap: onTextTap,
-      //       ),
-      //       ContentRow(),
-      //       FooterRow(),
-
-      //       // Other Rows can be added similarly
-      //     ],
-      //   ),
-      // ),
+    return Scaffold(
+      body: Row(
+        children: [
+          SolopreneurRow(
+            selectedText: selectedText,
+            onTextTap: onTextTap,
+          ),
+          ContentRow(),
+          FooterRow(),
+          // Other Rows can be added similarly
+        ],
+      ),
     );
   }
 
