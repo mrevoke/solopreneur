@@ -1,6 +1,13 @@
 // mail_content.dart
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
+
+import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+
+import 'package:http/http.dart' as http;
 
 class MailContent extends StatefulWidget {
   @override
@@ -8,6 +15,37 @@ class MailContent extends StatefulWidget {
 }
 
 class _MailContentState extends State<MailContent> {
+  TextEditingController _questionController = TextEditingController();
+  String resp = 'Please wait while we get you a message format.........';
+
+  Future<void> askGPT(String question) async {
+    print('hello');
+    var response = await http.post(
+      Uri.parse('https://api.openai.com/v1/completions'), // Replace with your GPT API endpoint
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${dotenv.env['chat_gpt_api']}', // Accessing API key from .env file
+      },
+      body: jsonEncode({"model":"gpt-3.5-turbo-instruct",
+        "prompt" : question,
+        "max_tokens" : 600,
+      }),
+    );
+
+    print('Response Status Code: ${response.statusCode}');
+    print('Response Body: ${response.body}');
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      setState(() {
+        resp = data['choices'][0]['text'];
+        print('i got $resp');
+      });
+    } else {
+      print('Failed to fetch response from GPT API');
+    }
+  }
+
+
   @override
   var t=false;
   Widget build(BuildContext context) {
@@ -39,6 +77,8 @@ class _MailContentState extends State<MailContent> {
               height: MediaQuery.of(context).size.height * 0.5 / 7,
               width: MediaQuery.of(context).size.width * 2 / 5,
               child: TextField(
+                controller: _questionController,
+                maxLines: null,
                 // controller: widget.emailController,
                 decoration: InputDecoration(
                   hintText:
@@ -46,11 +86,23 @@ class _MailContentState extends State<MailContent> {
                   hintStyle: TextStyle(
                     fontSize: MediaQuery.of(context).size.height * 0.02,
                     color: Colors.black,
+
                   ),
                   suffixIcon: IconButton(
                     icon: Icon(Icons.send),
                     onPressed: () {
+
                       setState(() {
+                        //response='Loading.....';
+                        String question = _questionController.text;
+                        if (question.isNotEmpty) {
+                          question="Hey Chat GPT help me write a cold mail in less than 400 word proper format"
+                              "and in an eye catchy manner to get reply from my investor while "
+                              "keeping these things also in mind"+question;
+                          askGPT(question);
+                          _questionController.clear();
+                        }
+                        //print('$resp');
                         t = true;
                         //    widget.isSendIconClicked = true;
                       });
@@ -76,21 +128,10 @@ class _MailContentState extends State<MailContent> {
             //boxForContent
             child: Padding(
               padding: const EdgeInsets.all(4.0),
-              child: Text(
-                "Dear Investor,\n\n"
-                "I trust this email finds you well. My name is Bruno, and I represent [Your Company Name], a dynamic and innovative company making significant strides in [your industry/sector].\n\n"
-                "I am reaching out to you because of your impressive track record in recognizing and supporting transformative ventures. We are currently at a pivotal juncture, poised for substantial growth and expansion, and we believe your strategic insight and financial support could play a crucial role in our success.\n\n"
-                "Key Highlights:\n\n"
-                "1. **Innovative Solutions:** [Your Company Name] is at the forefront of [mention a key innovation or product/service]. Our commitment to pushing the boundaries of what's possible has garnered attention and interest in the market.\n\n"
-                "2. **Proven Performance:** With a track record of [mention any noteworthy achievements or milestones], we have demonstrated our ability to deliver results and adapt to market demands.\n\n"
-                "3. **Market Potential:** Our research indicates a growing demand for [highlight a market trend/opportunity], and we are well-positioned to capitalize on this potential with the right strategic partnerships.\n\n"
-                "I would welcome the opportunity to discuss our vision, strategy, and the specific investment opportunity in more detail. Could we schedule a meeting at your earliest convenience? I am confident that a partnership with [Your Company Name] could yield mutual benefits.\n\n"
-                "Thank you for considering our proposal. I look forward to the possibility of working together to achieve shared success.\n\n"
-                "Best regards,\n\n"
-                "[Your Full Name]\n"
-                "[Your Position]\n"
-                "[Your Contact Information]\n"
-                "[Your Company Name]",
+              child: SingleChildScrollView(
+                child: Text(
+                  " $resp",
+                ),
               ),
             ),
             decoration: BoxDecoration(
@@ -108,7 +149,7 @@ class _MailContentState extends State<MailContent> {
             //boxForContent
             child: Padding(
               padding: const EdgeInsets.all(4.0),
-              child: Text(" "),
+              child: Text("  "),
             ),
             decoration: BoxDecoration(
               border: Border.all(
