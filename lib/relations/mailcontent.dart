@@ -153,57 +153,64 @@ for (int i = 0; i < lines.length; i++) {
           height: MediaQuery.of(context).size.height * 0.02,
         ),
         //boxForContent
-        if (t==true)
-          Container(
-            height: MediaQuery.of(context).size.height * 1.2 / 2,
-            width: MediaQuery.of(context).size.width * .35,
-            //boxForContent,
-            //boxForContent
-            child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: SingleChildScrollView(
-                child: Text(
-                  " $resp",
-                ),
-              ),
-            ),
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.black,
-                width: MediaQuery.of(context).size.width * 0.002,
-              ),
-            ),
-          ),
-        if (t==false)
-          Container(
-            height: MediaQuery.of(context).size.height * 1.2 / 2,
-            width: MediaQuery.of(context).size.width * .35,
-            //boxForContent,
-            //boxForContent
-            child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Text("  "),
-            ),
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.black,
-                width: MediaQuery.of(context).size.width * 0.002,
-              ),
-            ),
-          ),
-
-        Align(
-          alignment: Alignment.bottomRight,
-          child: IconButton(
-            onPressed: () {
-              _showCardDialog(context);
-            },
-            icon: Icon(
-              Icons.chat_bubble,
-              size: MediaQuery.of(context).size.width * 0.03,
+       if (t == true)
+  Container(
+    height: MediaQuery.of(context).size.height * 1.2 / 2,
+    width: MediaQuery.of(context).size.width * .35,
+    // boxForContent,
+    // boxForContent
+    child: Stack(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: SingleChildScrollView(
+            child: Text(
+              " $resp",
             ),
           ),
         ),
+        Align(
+          alignment: Alignment.bottomRight,
+          child: Padding(
+            padding: const EdgeInsets.all(0.0),
+            child: IconButton(
+              onPressed: () {
+                _showCardDialog(context);
+              },
+              icon: Icon(
+                Icons.send,
+                size: MediaQuery.of(context).size.width * 0.02,
+              ),
+            ),
+          ),
+        ),
+      ],
+    ),
+    decoration: BoxDecoration(
+      border: Border.all(
+        color: Colors.black,
+        width: MediaQuery.of(context).size.width * 0.002,
+      ),
+    ),
+  ),
+if (t == false)
+  Container(
+    height: MediaQuery.of(context).size.height * 1.2 / 2,
+    width: MediaQuery.of(context).size.width * .35,
+    // boxForContent,
+    // boxForContent
+    child: Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: Text("  "),
+    ),
+    decoration: BoxDecoration(
+      border: Border.all(
+        color: Colors.black,
+        width: MediaQuery.of(context).size.width * 0.002,
+      ),
+    ),
+  ),
+
       ],
     );
   }
