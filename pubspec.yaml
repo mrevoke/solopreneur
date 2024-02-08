@@ -43,6 +43,7 @@ dependencies:
   chat_gpt_sdk: ^2.2.5
   firebase_core: ^2.25.3
   firebase_auth: ^4.17.3
+  cloud_firestore: ^4.15.4
 
 dev_dependencies:
   flutter_test:

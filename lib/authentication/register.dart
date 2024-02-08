@@ -1,21 +1,26 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:solopreneuer/Employee/employee.dart';
-import 'package:solopreneuer/authentication/register.dart';
-import 'package:solopreneuer/homepage/homepage.dart';
+import 'package:solopreneuer/authentication/login.dart';
 import 'package:solopreneuer/main.dart'; // Adjust the import based on your project structure
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
-class LoginPage extends StatefulWidget {
-  LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  final _auth = FirebaseAuth.instance;
+  var options = [
+    'Enterpreneur',
+    'Job Seeker',
+  ];
+  var _currentItemSelected = "Enterpreneur";
+  var role = "Enterpreneur";
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                             TextSpan(
-                              text: ' Sign In 👇',
+                              text: ' Register 👇',
                               style: TextStyle(
                                 fontWeight: FontWeight.w800,
                                 color: Colors.blue,
@@ -122,6 +127,47 @@ class _LoginPageState extends State<LoginPage> {
                           labelText: 'Password',
                         ),
                       ),
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Role : ",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
+                          DropdownButton<String>(
+                            dropdownColor: Colors.blue[900],
+                            isDense: true,
+                            isExpanded: false,
+                            iconEnabledColor: Colors.white,
+                            focusColor: Colors.white,
+                            items: options.map((String dropDownStringItem) {
+                              return DropdownMenuItem<String>(
+                                value: dropDownStringItem,
+                                child: Text(
+                                  dropDownStringItem,
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                            onChanged: (newValueSelected) {
+                              setState(() {
+                                _currentItemSelected = newValueSelected!;
+                                role = newValueSelected;
+                              });
+                            },
+                            value: _currentItemSelected,
+                          ),
+                        ],
+                      ),
 
                       SizedBox(height: height * 0.03),
                       Align(
@@ -146,17 +192,17 @@ class _LoginPageState extends State<LoginPage> {
                             child: Material(
                               color: Colors.transparent,
                               child: InkWell(
-
+                                // onTap: () async {
+                                //   await FirebaseAuth.instance
+                                //       .createUserWithEmailAndPassword(
+                                //     email: emailController.text,
+                                //     password: passwordController.text,
+                                //   );
+                                // },
                                 onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => RegisterPage(),
-                                    ),
-                                  );
-                                
+                                  signUp(emailController.text,
+                                      passwordController.text, role);
                                 },
-                                
                                 borderRadius: BorderRadius.circular(16.0),
                                 child: Ink(
                                   padding: EdgeInsets.symmetric(
@@ -193,8 +239,12 @@ class _LoginPageState extends State<LoginPage> {
                               color: Colors.transparent,
                               child: InkWell(
                                 onTap: () {
-                                  signIn(emailController.text,
-                                      passwordController.text);
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => LoginPage(),
+                                    ),
+                                  );
                                 },
                                 borderRadius: BorderRadius.circular(16.0),
                                 child: Ink(
@@ -238,49 +288,19 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void route() {
-    User? user = FirebaseAuth.instance.currentUser;
-    var kk = FirebaseFirestore.instance
-        .collection('users')
-        .doc(user!.uid)
-        .get()
-        .then((DocumentSnapshot documentSnapshot) {
-      if (documentSnapshot.exists) {
-        if (documentSnapshot.get('role') == "Enterpreneur") {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => MyHomePage(),
-            ),
-          );
-        } else {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => employee(),
-            ),
-          );
-        }
-      } else {
-        print('Document does not exist on the database');
-      }
-    });
+  void signUp(String email, String password, String role) async {
+    await _auth
+        .createUserWithEmailAndPassword(email: email, password: password)
+        .then((value) => {postDetailsToFirestore(email, role)})
+        .catchError((e) {});
   }
 
-  void signIn(String email, String password) async {
-    try {
-      UserCredential userCredential =
-          await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      route();
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
-      }
-    }
+  postDetailsToFirestore(String email, String rool) async {
+    //FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    var user = _auth.currentUser;
+    CollectionReference ref = FirebaseFirestore.instance.collection('users');
+    ref.doc(user!.uid).set({'email': emailController.text, 'role': role});
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => LoginPage()));
   }
 }

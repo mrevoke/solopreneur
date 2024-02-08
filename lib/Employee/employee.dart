@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:solopreneuer/Employee/labeltext.dart';
 import 'package:solopreneuer/relations/mailsection.dart';
@@ -32,7 +33,8 @@ class _employeeState extends State<employee> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                      SizedBox(height:MediaQuery.of(context).size.height *0.055 ,),
-    
+
+                    
                       const LabeledTextField(labelText: "Full Name", hintText: "Type here"),
                      SizedBox(height:MediaQuery.of(context).size.height *0.022 ,),
                       const LabeledTextField(labelText: "Phone Number", hintText: "Type here"),

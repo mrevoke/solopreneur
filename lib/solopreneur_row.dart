@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:solopreneuer/finance/finance_page.dart';
+import 'package:solopreneuer/homepage/homepage.dart';
 import 'package:solopreneuer/legal/legal.dart';
 import 'package:solopreneuer/legal/legal_attempt.dart';
 import 'package:solopreneuer/main.dart';
@@ -72,7 +73,7 @@ class SolopreneurRow extends StatelessWidget {
                  Navigator.pop(context);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MyApp()),
+                  MaterialPageRoute(builder: (context) => MyHomePage()),
                 ); onTextTap('Overview');
               },
               child: Container(
