@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:solopreneuer/authentication/login.dart';
+import 'package:solopreneuer/authentication/register.dart';
 //import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:solopreneuer/finance/finance_page.dart';
 import 'package:solopreneuer/finance/main_page.dart';
@@ -36,51 +37,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(useMaterial3: true),
         debugShowCheckedModeBanner: false,
         title: 'firebase auth example',
-        home: StreamBuilder<User?>(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return MyHomePage();
-            } else {
-              return LoginPage();
-            }
-          },
-        ));
+        home: RegisterPage());
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
 
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
 
-class _MyHomePageState extends State<MyHomePage> {
-  String selectedText = '';
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Row(
-        children: [
-          SolopreneurRow(
-            selectedText: selectedText,
-            onTextTap: onTextTap,
-          ),
-          ContentRow(),
-          FooterRow(),
-          // Other Rows can be added similarly
-        ],
-      ),
-    );
-  }
-
-  void onTextTap(String text) {
-    setState(() {
-      selectedText = text;
-    });
-    // Add your logic here for the onTap event
-    // For example, you can navigate to a different screen or perform some action
-  }
-}
