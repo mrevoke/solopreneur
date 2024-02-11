@@ -134,7 +134,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           const Text(
                             "Role : ",
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 30,
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
                             ),
@@ -302,5 +302,6 @@ class _RegisterPageState extends State<RegisterPage> {
     ref.doc(user!.uid).set({'email': emailController.text, 'role': role});
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => LoginPage()));
+    // calling login page even on login???
   }
 }

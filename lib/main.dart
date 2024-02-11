@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         theme: ThemeData(useMaterial3: true),
         debugShowCheckedModeBanner: false,
-        title: 'firebase auth example',
+        title: 'Solopreneur',
         home: RegisterPage());
         // home: const employee());  
   }
