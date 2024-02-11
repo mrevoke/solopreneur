@@ -26,18 +26,18 @@ class _MainPageState extends State<MainPage> {
           Row(
             children: [
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     border: Border(
                         right: BorderSide(
                             color: Color.fromARGB(255, 141, 131, 131)))),
                 width: abvilableWidth / 2.0,
                 height: screenHeight * 2.5 / 4.0,
-                child: BargraphContainer(),
+                child: const BargraphContainer(),
               ),
               Container(
                 height: screenHeight * 2.5 / 4.0,
                 width: abvilableWidth / 2.0,
-                child: FinancialGoalContainer(),
+                child: const FinancialGoalContainer(),
               ),
             ],
           ),

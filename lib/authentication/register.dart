@@ -40,7 +40,7 @@ class _RegisterPageState extends State<RegisterPage> {
               Expanded(
                 child: Container(
                   height: height,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
                         Color(0xFF252B5C), // Dark Blue
@@ -51,7 +51,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       stops: [0.0, 1.0],
                     ),
                   ),
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       'Solopreneur',
                       style: TextStyle(
@@ -79,7 +79,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     children: [
                       SizedBox(height: height * 0.2),
                       RichText(
-                        text: TextSpan(
+                        text: const TextSpan(
                           children: [
                             TextSpan(
                               text: 'Let’s',
@@ -101,7 +101,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                       ),
                       SizedBox(height: height * 0.02),
-                      Text(
+                      const Text(
                         'Hey, Enter your details to get sign in \nto your account.',
                         style: TextStyle(
                           fontSize: 12.0,
@@ -131,7 +131,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             "Role : ",
                             style: TextStyle(
                               fontSize: 20,
@@ -150,7 +150,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 value: dropDownStringItem,
                                 child: Text(
                                   dropDownStringItem,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
@@ -174,7 +174,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         alignment: Alignment.centerRight,
                         child: TextButton(
                           onPressed: () {},
-                          child: Text(
+                          child: const Text(
                             'Forgot Password?',
                             style: TextStyle(
                               fontSize: 12.0,
