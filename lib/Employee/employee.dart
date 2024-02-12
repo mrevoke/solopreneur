@@ -56,7 +56,7 @@ class _employeeState extends State<employee> {
   final TextEditingController dobController = TextEditingController();
   final TextEditingController profileLinksController = TextEditingController();
   final TextEditingController relocateController = TextEditingController();
-  final TextEditingController locationController = TextEditingController();
+  final TextEditingController citizenshipController = TextEditingController();
   final TextEditingController salaryController = TextEditingController();
   final TextEditingController experienceController = TextEditingController();
   final TextEditingController skillsController = TextEditingController();
@@ -86,7 +86,7 @@ class _employeeState extends State<employee> {
         'dob': dobController.text,
         'profileLinks': profileLinksController.text,
         'relocate': relocateController.text,
-        'location': locationController.text,
+        'citizenship': citizenshipController.text,   // location == citizenship
         'salary': salaryController.text,
         'experience': experienceController.text,
         'skills': skillsController.text,
@@ -166,13 +166,13 @@ class _employeeState extends State<employee> {
                 SizedBox(height: MediaQuery.of(context).size.height * 0.022),
                 LabeledTextField(
                     labelText: "Ready To Relocate",
-                    hintText: "Type here",
+                    hintText: "Enter YES or NO",
                     controller: relocateController),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.022),
                 LabeledTextField(
-                    labelText: "Preffered Location",
+                    labelText: "Citizenship",   // preferrred location == citizenship
                     hintText: "Type here",
-                    controller: locationController),
+                    controller: citizenshipController),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.022),
                 LabeledTextField(
                     labelText: "Current Salary",
