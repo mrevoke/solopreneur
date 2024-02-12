@@ -1,6 +1,7 @@
 // solopreneur_row.dart
 
 import 'package:flutter/material.dart';
+import 'package:solopreneuer/HR/hr.dart';
 import 'package:solopreneuer/finance/finance_page.dart';
 import 'package:solopreneuer/homepage/homepage.dart';
 import 'package:solopreneuer/legal/legal.dart';
@@ -135,6 +136,32 @@ class SolopreneurRow extends StatelessWidget {
                   'Finance',
                   style: TextStyle(
                     color: selectedText == 'Finance'
+                        ? Colors.blue
+                        : Color(0xFFBDBDBD),
+                    fontSize: screenHeight * 0.018,
+                    fontFamily: 'Manrope',
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ),
+
+            SizedBox(height: screenHeight * 0.05),
+
+            GestureDetector(
+              onTap: () {
+                 Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Hr()),
+                ); 
+                onTextTap('HR');
+              },
+              child: Container(
+                child: Text(
+                  'HR',
+                  style: TextStyle(
+                    color: selectedText == 'HR'
                         ? Colors.blue
                         : Color(0xFFBDBDBD),
                     fontSize: screenHeight * 0.018,
