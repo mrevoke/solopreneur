@@ -190,14 +190,14 @@ class _InfoCardState extends State<InfoCard> {
                          backgroundColor: bgColor,
                        ),
                        buildTextContainer(
-                         text: "Expected Salary:  Rs.${widget.expectedSalary}",
+                         text: "Expected Salary: ₹.${widget.expectedSalary}",
                          textSize: sfs,
                          numberOfTexts: 1,
                          textColor: Colors.white,
                          backgroundColor: bgColor,
                        ),
                        buildTextContainer(
-                         text: "Current Salary: Rs.${widget.currentSalary}",
+                         text: "Current Salary: ₹.${widget.currentSalary}",
                          textSize: sfs,
                          numberOfTexts: 1,
                          textColor: Colors.white,
