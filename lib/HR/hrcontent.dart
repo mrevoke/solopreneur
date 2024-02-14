@@ -47,12 +47,16 @@ class _hrcontentState extends State<hrcontent> {
               ],
             ),
             SizedBox(height: 16.0),
-            Expanded(
-              child: ListView.builder(
-                itemCount: searchResults.length,
-                itemBuilder: (context, index) {
-                  return InfoCard.fromMap(searchResults[index]);
-                },
+            Container(
+              width: MediaQuery.of(context).size.width / 4,
+              height: MediaQuery.of(context).size.height / 1.3,
+              child: Expanded(
+                child: ListView.builder(
+                  itemCount: searchResults.length,
+                  itemBuilder: (context, index) {
+                    return InfoCard.fromMap(searchResults[index]);
+                  },
+                ),
               ),
             ),
           ],
