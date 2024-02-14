@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:solopreneuer/Employee/employee.dart';
 import 'package:solopreneuer/authentication/register.dart';
 import 'package:solopreneuer/homepage/homepage.dart';
-import 'package:solopreneuer/main.dart'; // Adjust the import based on your project structure
+import 'package:solopreneuer/Employee/employee.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -109,23 +108,85 @@ class _LoginPageState extends State<LoginPage> {
                       // Your existing code for email and password fields
                       TextField(
                         controller: emailController,
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Email',
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      SizedBox(height: 10),
                       TextField(
                         controller: passwordController,
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Password',
                         ),
                       ),
 
-                      SizedBox(height: height * 0.03),
+                    
+                      SizedBox(height: height * 0.05),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                onTap: () {
+                                  signIn(emailController.text,
+                                      passwordController.text);
+                                },
+                                borderRadius: BorderRadius.circular(16.0),
+                                child: Ink(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: width * 0.01,
+                                    vertical: 18.0,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    color: Color.fromARGB(255, 114, 183, 240),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'Log In',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.white,
+                                        fontSize: height * 0.04,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      SizedBox(height: height * 0.02),
                       Align(
-                        alignment: Alignment.centerRight,
+                        alignment: Alignment.center,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RegisterPage(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "New here? Register here",
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+
+                        SizedBox(height: height * 0.01),
+                      Align(
+                        alignment: Alignment.center,
                         child: TextButton(
                           onPressed: () {},
                           child: Text(
@@ -139,94 +200,6 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
 
-                      SizedBox(height: height * 0.05),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Material(
-                              color: Colors.transparent,
-                              child: InkWell(
-
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => RegisterPage(),
-                                    ),
-                                  );
-                                
-                                },
-                                
-                                borderRadius: BorderRadius.circular(16.0),
-                                child: Ink(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        MediaQuery.of(context).size.width *
-                                            0.01,
-                                    vertical: 18.0,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(16.0),
-                                    color: const Color.fromARGB(
-                                        255, 114, 183, 240),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      'Register',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        color: Colors.white,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.04,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                              width: 16.0), // Add spacing between buttons
-                          Expanded(
-                            child: Material(
-                              color: Colors.transparent,
-                              child: InkWell(
-                                onTap: () {
-                                  signIn(emailController.text,
-                                      passwordController.text);
-                                },
-                                borderRadius: BorderRadius.circular(16.0),
-                                child: Ink(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        MediaQuery.of(context).size.width *
-                                            0.01,
-                                    vertical: 18.0,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(16.0),
-                                    color: const Color.fromARGB(
-                                        255, 114, 183, 240),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      'Log In',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        color: Colors.white,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.04,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
                     ],
                   ),
                 ),

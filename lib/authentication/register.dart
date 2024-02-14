@@ -1,8 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:solopreneuer/authentication/login.dart';
 import 'package:solopreneuer/main.dart'; // Adjust the import based on your project structure
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class RegisterPage extends StatefulWidget {
   RegisterPage({super.key});
@@ -169,21 +169,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ],
                       ),
 
-                      SizedBox(height: height * 0.03),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: () {},
-                          child: const Text(
-                            'Forgot Password?',
-                            style: TextStyle(
-                              fontSize: 12.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
+                     
 
                       SizedBox(height: height * 0.05),
                       Row(
@@ -192,16 +178,11 @@ class _RegisterPageState extends State<RegisterPage> {
                             child: Material(
                               color: Colors.transparent,
                               child: InkWell(
-                                // onTap: () async {
-                                //   await FirebaseAuth.instance
-                                //       .createUserWithEmailAndPassword(
-                                //     email: emailController.text,
-                                //     password: passwordController.text,
-                                //   );
-                                // },
                                 onTap: () {
-                                  signUp(emailController.text,
-                                      passwordController.text, role);
+                                  signUp(
+                                      emailController.text,
+                                      passwordController.text,
+                                      role);
                                 },
                                 borderRadius: BorderRadius.circular(16.0),
                                 child: Ink(
@@ -232,50 +213,47 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                             ),
                           ),
-                          const SizedBox(
-                              width: 16.0), // Add spacing between buttons
-                          Expanded(
-                            child: Material(
-                              color: Colors.transparent,
-                              child: InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => LoginPage(),
-                                    ),
-                                  );
-                                },
-                                borderRadius: BorderRadius.circular(16.0),
-                                child: Ink(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        MediaQuery.of(context).size.width *
-                                            0.01,
-                                    vertical: 18.0,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(16.0),
-                                    color: const Color.fromARGB(
-                                        255, 114, 183, 240),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      'Log In',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        color: Colors.white,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.04,
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                          
+                        ],
+                      ),
+
+                      SizedBox(height: height * 0.02),
+                      Align(
+                        alignment: Alignment.center,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginPage(),
                               ),
+                            );
+                          },
+                          child: const Text(
+                            "Already have an account? Log in here",
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ],
+                        ),
+                      ),
+
+                       SizedBox(height: height * 0.01),
+                      Align(
+                        alignment: Alignment.center,
+                        child: TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            'Forgot Password?',
+                            style: TextStyle(
+                              fontSize: 12.0,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -295,13 +273,11 @@ class _RegisterPageState extends State<RegisterPage> {
         .catchError((e) {});
   }
 
-  postDetailsToFirestore(String email, String rool) async {
-    //FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+  postDetailsToFirestore(String email, String role) async {
     var user = _auth.currentUser;
     CollectionReference ref = FirebaseFirestore.instance.collection('users');
     ref.doc(user!.uid).set({'email': emailController.text, 'role': role});
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => LoginPage()));
-    // calling login page even on login???
   }
 }
