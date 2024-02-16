@@ -28,7 +28,7 @@ Welcome to Solopreneur, your one-stop solution for all entrepreneurial needs. So
 - Solopreneur provides a cost-effective solution compared to conventional methods.
 
 
-![Dashboard]("./screenshot/dashboard.png")
+![Dashboard](https://github.com/NirmalKAhirwar/solopreneur/blob/master/screenshot/dashboard.png)
 
 
 
