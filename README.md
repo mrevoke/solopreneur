@@ -27,7 +27,7 @@ Welcome to Solopreneur, your one-stop solution for all entrepreneurial needs. So
 ### Cost-Effective Solution
 - Solopreneur provides a cost-effective solution compared to conventional methods.
 
-
+## Homepage
 ![Dashboard](https://github.com/NirmalKAhirwar/solopreneur/blob/master/screenshot/dashboard.png)
 
 
@@ -59,6 +59,33 @@ Explain algorithms ensuring effective task management based on specified criteri
 
 ### Scalability and Adaptability
 Highlight the bot's scalability and adaptability to diverse company needs. The application should be designed to scale with the growing needs of the users and adapt to changes in the business environment. This includes flexibility in adding new features, accommodating changes in user requirements, and handling increased workload without compromising performance.
+
+## ScreenShots
+#### Dashboard Page
+![Dashboard page](https://github.com/NirmalKAhirwar/solopreneur/blob/master/screenshot/dashboard.png)
+
+#### Dashboard Page
+![EmployeeInfo page](https://github.com/NirmalKAhirwar/solopreneur/blob/master/screenshot/Employee.png)
+
+#### Legal Advisor Page
+![Legal Advisor page](https://github.com/NirmalKAhirwar/solopreneur/blob/master/screenshot/Legal.png)
+
+#### Networking page
+![Networking page](https://github.com/NirmalKAhirwar/solopreneur/blob/master/screenshot/Networking.png)
+
+#### Marketing page
+![Marketing page](https://github.com/NirmalKAhirwar/solopreneur/blob/master/screenshot/marketing.png)
+
+#### Finance page
+![Finance page](https://github.com/NirmalKAhirwar/solopreneur/blob/master/screenshot/finance.png)
+
+#### Time Management page
+![Time Management page](https://github.com/NirmalKAhirwar/solopreneur/blob/master/screenshot/time%20management.png)
+
+
+
+
+
 ## Future Aspects
 
 ### Advanced Analytics and Predictive Modeling
