@@ -200,6 +200,32 @@ class SolopreneurRow extends StatelessWidget {
             ),
             SizedBox(height: screenHeight * 0.05),
 
+             // Financial advisor
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => legal()),
+                );
+                onTextTap('Financial advisor');
+              },
+              child: Container(
+                child: Text(
+                  'Financial advisor',
+                  style: TextStyle(
+                    color: selectedText == 'Financial advisor'
+                        ? Colors.blue
+                        : Color(0xFFBDBDBD),
+                    fontSize: screenHeight * 0.018,
+                    fontFamily: 'Manrope',
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: screenHeight * 0.05),
+
             // Relations
             GestureDetector(
               onTap: () {
