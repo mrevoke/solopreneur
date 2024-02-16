@@ -27,6 +27,14 @@ Welcome to Solopreneur, your one-stop solution for all entrepreneurial needs. So
 ### Cost-Effective Solution
 - Solopreneur provides a cost-effective solution compared to conventional methods.
 
+### HR Management
+- Comprehensive HR management system to handle job applications, interviews, and hiring processes.
+- View all applicants who have applied for job positions, including their resumes and contact information.
+
+### Job Application Form
+- User-friendly interface for job applicants to fill in their personal information, qualifications, and job preferences.
+- Secure submission process to ensure confidentiality of applicant data.
+
 ## Homepage
 ![Dashboard](https://github.com/NirmalKAhirwar/solopreneur/blob/master/screenshot/dashboard.png)
 
@@ -64,8 +72,8 @@ Highlight the bot's scalability and adaptability to diverse company needs. The a
 #### Dashboard Page
 ![Dashboard page](https://github.com/NirmalKAhirwar/solopreneur/blob/master/screenshot/dashboard.png)
 
-#### Dashboard Page
-![EmployeeInfo page](https://github.com/NirmalKAhirwar/solopreneur/blob/master/screenshot/Employee.png)
+#### Job Applicant Page
+![Job Applicant page](https://github.com/NirmalKAhirwar/solopreneur/blob/master/screenshot/Employee.png)
 
 #### Legal Advisor Page
 ![Legal Advisor page](https://github.com/NirmalKAhirwar/solopreneur/blob/master/screenshot/Legal.png)
