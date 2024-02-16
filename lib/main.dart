@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(useMaterial3: true),
         debugShowCheckedModeBanner: false,
         title: 'Solopreneur',
-        home: RegisterPage());
+        home: LoginPage());
         // home: const employee());  
   }
 }
