@@ -43,7 +43,7 @@ class _legal_pageState extends State<legal_page> {
 
     List<Messages> messageHistory = all_messages.reversed.map((message_typed) {
       if (message_typed.user == currUser) {
-        return Messages(role: Role.user, content:"now roleplay like a top class financial advisor and give me financial tips"+ message_typed.text);
+        return Messages(role: Role.user, content:"now roleplay like a top class legal advisor and give me legal tips and reply wrong prompt if things are not related to legal things "+ message_typed.text);
       } else {
         return Messages(role: Role.assistant, content: message_typed.text);
       }
