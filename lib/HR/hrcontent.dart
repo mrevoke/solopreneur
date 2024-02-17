@@ -53,28 +53,34 @@ class _hrcontentState extends State<hrcontent> {
                   itemCount: searchResults.length,
                   itemBuilder: (context, index) {
                     int firstIndex=index*2,secondIndex=index*2+1;
-                    return Row(
-                        children:<Widget>[
-                          SizedBox(width: MediaQuery.of(context).size.width / 10,),
-                          if (firstIndex < searchResults.length)
-                          Container(
-                            width: MediaQuery.of(context).size.width / 4,
-                            height: MediaQuery.of(context).size.height / 1.3,
-                            child: InfoCard.fromMap(searchResults[firstIndex]),
-                          ),
-                          SizedBox(width: MediaQuery.of(context).size.width / 20,),
-                          if (secondIndex < searchResults.length)
-                            Container(
-                              width: MediaQuery.of(context).size.width / 4,
-                              height: MediaQuery.of(context).size.height / 1.3,
-                              child: InfoCard.fromMap(searchResults[secondIndex]),
-                            ),
-                          if(firstIndex < searchResults.length && secondIndex >= searchResults.length)
-                            Container(
-                              width: MediaQuery.of(context).size.width / 4,
-                              height: MediaQuery.of(context).size.height / 1.3,
-                            )
-                    ]
+                    return Column(
+                      children: [
+                        Row(
+                            children:<Widget>[
+                              SizedBox(width: MediaQuery.of(context).size.width / 10,),
+                              if (firstIndex < searchResults.length)
+                              Container(
+                                width: MediaQuery.of(context).size.width / 4,
+                                height: MediaQuery.of(context).size.height / 1.3,
+                                child: InfoCard.fromMap(searchResults[firstIndex]),
+                              ),
+                              SizedBox(width: MediaQuery.of(context).size.width / 20,),
+                              if (secondIndex < searchResults.length)
+                                Container(
+                                  width: MediaQuery.of(context).size.width / 4,
+                                  height: MediaQuery.of(context).size.height / 1.3,
+                                  child: InfoCard.fromMap(searchResults[secondIndex]),
+                                ),
+                              if(firstIndex < searchResults.length && secondIndex >= searchResults.length)
+                                Container(
+                                  width: MediaQuery.of(context).size.width / 4,
+                                  height: MediaQuery.of(context).size.height / 1.3,
+                                )
+                                
+                        ]
+                        ),
+                        SizedBox(height: MediaQuery.sizeOf(context).height/10,)
+                      ],
                     );
                   },
                 ),
