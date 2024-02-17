@@ -20,7 +20,7 @@ class _marketingState extends State<marketing> {
             selectedText: selectedText,
             onTextTap: onTextTap,
           ),
-          piechartsec(),
+          PieChartSec(),
           // Other Rows can be added similarly
         ],
       ),
