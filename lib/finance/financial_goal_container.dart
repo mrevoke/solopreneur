@@ -1,8 +1,23 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
-class FinancialGoalContainer extends StatelessWidget {
-  const FinancialGoalContainer({Key? key});
+class FinancialGoalContainer extends StatefulWidget {
+  const FinancialGoalContainer({Key? key}) : super(key: key);
+
+  @override
+  _FinancialGoalContainerState createState() => _FinancialGoalContainerState();
+}
+
+class _FinancialGoalContainerState extends State<FinancialGoalContainer> {
+  List<String> goals = [
+    "Repay Debt",
+    "Make Merch",
+    "Hire Interns",
+    "Buy new PC's",
+    "Expand to U.S",
+    "Refurnish"
+  ];
+  List<double> completion = [25, 60, 25, 37.5, 25.5, 37.5]; // Initial completion values
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +29,7 @@ class FinancialGoalContainer extends StatelessWidget {
         padding: EdgeInsets.only(left: 0.02 * screenWidth),
         child: Column(
           children: [
-            SizedBox(height: screenHeight*.4/7),
+            SizedBox(height: screenHeight * .4 / 7),
             Text(
               'Financial Goal',
               style: TextStyle(
@@ -23,161 +38,115 @@ class FinancialGoalContainer extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            SizedBox(height: screenHeight*.9/7),
+            SizedBox(height: screenHeight * .9 / 20),
             Row(
-              children: [SizedBox(width: MediaQuery.of(context).size.width*0.2/7,),
-                Column(crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    LinearPercentIndicator(
-                      width: 1.5/7 * screenWidth, // 2/7 of screen width
-                      animation: true,
-                      animationDuration: 1000,
-                      lineHeight: 0.04 * screenHeight, // 1/25 of screen height
-                      percent: 0.25,
-                      center: Text(
-                        "2 of 8",
-                        style: TextStyle(
-                            fontSize: 0.02 * screenHeight,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black),
-                      ),
-                      progressColor: const Color(0xff5963ff),
-                      leading:Text(
-                        "Repay Debt",
-                        style: TextStyle(
-                            fontSize: 0.028 * screenHeight,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black),
-                      ),
-                      backgroundColor: Colors.grey[300],
-                    ),
-                    SizedBox(height: 0.02 * screenHeight),
-                    LinearPercentIndicator(
-                      width: 1.5/7 * screenWidth,
-                      animation: true,
-                      animationDuration: 1000,
-                      lineHeight: 0.04 * screenHeight,
-                      percent: 0.6,
-                      center: Text(
-                        "3 of 5",
-                        style: TextStyle(
-                            fontSize: 0.02 * screenHeight,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black),
-                      ),
-                      progressColor: const Color(0xff5963ff),
-                      leading: Text(
-                        "Make Merch",
-                        style: TextStyle(
-                            fontSize: 0.028* screenHeight,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black),
-                      ),
-                      backgroundColor: Colors.grey[300],
-                    ),
-                    SizedBox(height: 0.02 * screenHeight),
-                    LinearPercentIndicator(
-                      width: 1.5/7 * screenWidth,
-                      animation: true,
-                      animationDuration: 1000,
-                      lineHeight: 0.04 * screenHeight,
-                      percent: 0.25,
-                      center: Text(
-                        "2 of 8",
-                        style: TextStyle(
-                            fontSize: 0.02 * screenHeight,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black),
-                      ),
-                      progressColor: const Color(0xff5963ff),
-                      leading: Text(
-                        "Hire Interns",
-                        style: TextStyle(
-                            fontSize: 0.028 * screenHeight,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black),
-                      ),
-                      backgroundColor: Colors.grey[300],
-                    ),
-                    SizedBox(height: 0.02 * screenHeight),
-                    LinearPercentIndicator(
-                      width: 1.5/7 * screenWidth,
-                      animation: true,
-                      animationDuration: 1000,
-                      lineHeight: 0.04 * screenHeight,
-                      percent: 0.375,
-                      center: Text(
-                        "3 of 8",
-                        style: TextStyle(
-                            fontSize: 0.02* screenHeight,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black),
-                      ),
-                      progressColor: const Color(0xff5963ff),
-                      leading: Text(
-                        "Buy new PC's",
-                        style: TextStyle(
-                            fontSize: 0.028 * screenHeight,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black),
-                      ),
-                      backgroundColor: Colors.grey[300],
-                    ),
-                    SizedBox(height: 0.02 * screenHeight),
-                    LinearPercentIndicator(
-                      width: 1.5/7 * screenWidth,
-                      animation: true,
-                      animationDuration: 1000,
-                      lineHeight: 0.04 * screenHeight,
-                      percent: 0.125,
-                      center: Text(
-                        "1 of 8",
-                        style: TextStyle(
-                            fontSize: 0.02 * screenHeight,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black),
-                      ),
-                      progressColor: const Color(0xff5963ff),
-                      leading:  Text(
-                        "Expand to U.S",
-                        style: TextStyle(
-                            fontSize: 0.028 * screenHeight,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black),
-                      ),
-                      backgroundColor: Colors.grey[300],
-                    ),
-                    SizedBox(height: 0.02 * screenHeight),
-                    LinearPercentIndicator(
-                      width: 1.5/7 * screenWidth,
-                      animation: true,
-                      animationDuration: 1000,
-                      lineHeight: 0.04 * screenHeight,
-                      percent: 0.375,
-                      center:  Text(
-                        "3 of 8",
-                        style: TextStyle(
-                            fontSize: 0.02 * screenHeight,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black),
-                      ),
-                      progressColor: const Color(0xff5963ff),
-                      leading:  Text(
-                        "Refurnish",
-                        style: TextStyle(
-                            fontSize: 0.028 * screenHeight,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black),
-                      ),
-                      backgroundColor: Colors.grey[300],
-                    ),
-                  ],
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.2 / 7,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: List.generate(goals.length, (index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: _buildGoalIndicator(
+                          screenWidth, screenHeight, index),
+                    );
+                  }),
                 ),
               ],
             ),
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _showEditDialog(context);
+        },
+        child: Icon(Icons.edit),
+      ),
+    );
+  }
+
+  Widget _buildGoalIndicator(
+      double screenWidth, double screenHeight, int index) {
+    return LinearPercentIndicator(
+      width:  screenWidth / 5,
+      animation: true,
+      animationDuration: 1000,
+      lineHeight: 0.04 * screenHeight,
+      percent: completion[index] / 100,
+      center: Text(
+        "${completion[index]}%",
+        style: TextStyle(
+            fontSize: 0.02 * screenHeight,
+            fontWeight: FontWeight.w600,
+            color: Colors.black),
+      ),
+      progressColor: const Color(0xff5963ff),
+      leading: Text(
+        goals[index],
+        style: TextStyle(
+            fontSize: 0.028 * screenHeight,
+            fontWeight: FontWeight.w400,
+            color: Colors.black),
+      ),
+      backgroundColor: Colors.grey[300],
+    );
+  }
+
+  void _showEditDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Edit Goals"),
+          content: SingleChildScrollView(
+            child: Column(
+              children: List.generate(
+                goals.length,
+                (index) => Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Goal ${index + 1}',
+                        ),
+                        onChanged: (value) {
+                          setState(() {
+                            goals[index] = value;
+                          });
+                        },
+                      ),
+                      SizedBox(height: 10),
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Completion Percentage',
+                        ),
+                        keyboardType: TextInputType.number,
+                        onChanged: (value) {
+                          setState(() {
+                            completion[index] = double.tryParse(value) ?? 0;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          actions: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("Save"),
+            ),
+          ],
+        );
+      },
     );
   }
 }
