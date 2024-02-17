@@ -104,7 +104,7 @@ class SolopreneurRow extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => marketing()),
-                ); onTextTap('Strategic Planning');
+                ); onTextTap('Marketing');
               },
               child: Container(
                 child: Text(
