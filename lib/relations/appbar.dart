@@ -1,6 +1,7 @@
 // app_bar.dart
 
 import 'package:flutter/material.dart';
+import 'package:solopreneuer/entreprenuer_data/user_data_input.dart';
 
 class MyAppBar extends StatelessWidget {
   @override
@@ -109,11 +110,22 @@ class _MyPopupMenuButtonState extends State<MyPopupMenuButton> {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
-            Text(
-              'Bruno Fernandes',
-              style: TextStyle(
-                fontSize: MediaQuery.of(context).size.height * 0.02,
-                fontWeight: FontWeight.bold,
+            GestureDetector(
+              onTap: () {
+                // Navigate to the user_input_data activity/screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => user_data_input()),
+                );
+              },
+
+              child: Text(
+                'Bruno Fernandes',
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.height * 0.02,
+                  fontWeight: FontWeight.bold,
+
+                ),
               ),
             ),
           ],

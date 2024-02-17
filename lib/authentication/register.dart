@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:solopreneuer/authentication/login.dart';
+import 'package:solopreneuer/entreprenuer_data/user_data_input.dart';
 import 'package:solopreneuer/main.dart'; // Adjust the import based on your project structure
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
