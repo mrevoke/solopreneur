@@ -1,6 +1,6 @@
 # Solopreneur
 
-Welcome to Solopreneur, your one-stop solution for all entrepreneurial needs. Solopreneur is a comprehensive application designed to minimize the workload and assist entrepreneurs in various tasks such as legal advisory, financial decisions, marketing studies, and more. With Solopreneur, entrepreneurs can streamline their processes, save time, and focus on what matters most - growing their business.
+Welcome to Solopreneur, your one-stop solution for all entrepreneurial needs. Solopreneur is a comprehensive application designed to minimize the workload and assist entrepreneurs in various tasks such as legal advisory, financial decisions, marketing studies, and more. With Solopreneur, entrepreneurs can streamline their processes, save time, and focus on what matters most - growing their business. 
 
 ## Features
 
