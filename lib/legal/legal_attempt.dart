@@ -50,9 +50,9 @@ class _legal_pageState extends State<legal_page> {
     }).toList();
 
     final req = ChatCompleteText(
-      model: GptTurbo0301ChatModel(),
-      messages: messageHistory,
-      maxToken: 100,
+      model: GptTurboChatModel(),
+      messages: [Map.of({"role": "user", "content": messageHistory})]
+,      maxToken: 100,
     );
     final response = await _openAI.onChatCompletion(request: req);
 

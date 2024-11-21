@@ -54,8 +54,8 @@ class _financial_pageState extends State<financial_page> {
     }).toList();
 
     final req = ChatCompleteText(
-      model: GptTurbo0301ChatModel(),
-      messages: messageHistory,
+      model: GptTurboChatModel(),
+      messages:[Map.of({"role": "user", "content":messageHistory})] ,
       maxToken: 100,
     );
     final response = await _openAI.onChatCompletion(request: req);

@@ -10,7 +10,7 @@ import firebase_auth
 import firebase_core
 import firebase_database
 import path_provider_foundation
-import sqflite
+import sqflite_darwin
 import url_launcher_macos
 import video_player_avfoundation
 
