@@ -50,7 +50,7 @@ class _legal_pageState extends State<legal_page> {
     }).toList();
 
     final req = ChatCompleteText(
-      model: GptTurbo0301ChatModel(),
+      model: GptTurboChatModel(),
       messages: messageHistory,
       maxToken: 100,
     );

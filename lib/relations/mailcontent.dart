@@ -29,7 +29,7 @@ class _MailContentState extends State<MailContent> {
         'Authorization': 'Bearer ${dotenv.env['chat_gpt_api']}',
         // Accessing API key from .env file
       },
-      body: jsonEncode({"model": "gpt-3.5-turbo-instruct",
+      body: jsonEncode({"model": "gpt-4o-mini",
         "prompt": question,
         "max_tokens": 600,
       }),

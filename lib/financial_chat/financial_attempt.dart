@@ -54,7 +54,7 @@ class _financial_pageState extends State<financial_page> {
     }).toList();
 
     final req = ChatCompleteText(
-      model: GptTurbo0301ChatModel(),
+      model: Gpt41106PreviewChatModel(),
       messages: messageHistory,
       maxToken: 100,
     );
