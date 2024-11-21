@@ -28,6 +28,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await dotenv.load(fileName: "lib/.env");
+ print(dotenv.env['chat_gpt_api']);
   // Enable visual debugging
   runApp(const MyApp());
 }
